@@ -1,0 +1,10 @@
+<h3>アーティスト名で検索</h3>
+<%= render 'search' %>
+
+
+<h1>検索結果</h1>
+<div>
+  <% if @musics.present? %>
+    <%= render 'result', musics: @musics %>
+  <% end %>
+</div>

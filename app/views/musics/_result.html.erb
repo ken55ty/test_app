@@ -1,0 +1,22 @@
+
+<div>
+
+      <div class="mt-4">
+        <h2 class="text-center font-bold text-primary mb-2">検索結果</h2>
+        <div class="flex flex-wrap justify-center">
+          <% musics.each do |music| %>
+            <div class="p-1 md:w-1/3">
+              <% if music[:id] %>
+              <%= music[:artist] %>
+              <%= music[:id] %>
+              <%= music[:name] %>
+              <%= image_tag(music[:cover_image][0]["url"], height: 64, width: 64) %>
+              <iframe src="https://open.spotify.com/embed/track/<%= music[:id] %>" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <%= button_to '作成', musics_path, method: :post, params: { spotify_music_id: music[:id], artist: music[:artist], title: music[:name], cover_image: music[:cover_image] },  class: "btn btn-sm btn-outline btn-primary" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+</div>

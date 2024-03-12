@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
   root "tops#index"
+  resources :users
+  resources :musics do
+    collection {get "search"}
+  end
 end
